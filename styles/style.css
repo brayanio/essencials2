@@ -1,0 +1,50 @@
+@import url('./form.css');
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+*{    
+    font-family: 'Inter', sans-serif;
+}
+
+html{
+    background-color: rgba(0,0,0,0.03);
+}
+
+app{
+    display: block;
+    background-color: white;
+    padding: 9px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.06);
+    border-radius: 9px;
+}
+
+@media screen and (min-width: 800px){
+    app{
+        width: 81%;
+        margin: 0 9%;
+    }
+}
+
+.hidden{
+    display: none !important;
+}
+
+.header{
+    display: block;
+    font-size: 1.8em;
+    margin-top: 6px;
+    margin-bottom: 12px;
+}
+
+.p-header{
+    display: block;
+    font-size: 1.2em;
+    margin-top: 6px;
+    margin-bottom: 12px;
+}
+
+.panel{
+    display: block;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.06);
+    padding: 9px;
+    border-radius: 9px;
+}

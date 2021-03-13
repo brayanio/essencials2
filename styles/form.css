@@ -1,0 +1,87 @@
+.form{
+    background: lightgreen;
+    padding: 12px;
+    border-radius: 9px;
+    position: relative;
+    display: inline-block;
+    padding-right: 4.2em;
+}
+
+.form input{
+    box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+    padding: 3px;
+    border-radius: 9px;
+    border: none;
+    background: lightblue;
+    transition: .3s;
+    min-height: 2.1em;
+    font-weight: bold;
+    text-transform: capitalize;
+    font-size: 1em;
+}
+
+.form input:hover{
+    background: lightskyblue;
+    box-shadow: 0 3px 9px rgba(0,0,0,0.39);
+}
+
+.form button{
+    box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+    padding: .1em;
+    border-radius: 9px;
+    border: none;
+    background: lightblue;
+    min-width: 2.7em;
+    min-height: 2em;
+    transition: .3s;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.form button:hover{
+    box-shadow: 0 3px 9px rgba(0,0,0,0.39);
+    background: lightskyblue;
+}
+
+.form button[type=submit]{
+    position: absolute;
+    bottom: -9px;
+    right: .6em;
+}
+
+.list-item{
+    padding: 12px;
+    border-radius: 9px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 4.2em;
+    margin: 15px 0;
+    background-color: lightgreen;
+}
+
+.list-item .actions{
+    position: absolute;
+    bottom: -9px;
+    right: .6em;
+}
+
+.actions button{
+    box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+    padding: .1em;
+    border-radius: 9px;
+    border: none;
+    background: lightblue;
+    min-width: 2.7em;
+    min-height: 2em;
+    transition: .3s;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.actions button:hover{
+    box-shadow: 0 3px 9px rgba(0,0,0,0.39);
+    background: lightskyblue;
+}
