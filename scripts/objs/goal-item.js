@@ -1,6 +1,6 @@
 import i0 from '../i0.js'
 
-i0.obj('list-item', 
+i0.obj('goal-item', 
 `
     <div class="panel list-item">
         <div i0="panel"></div>

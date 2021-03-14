@@ -1,11 +1,14 @@
 import i0 from '../i0.js'
 
-i0.obj('list-item', 
+i0.obj('budget-item', 
 `
     <div class="panel list-item">
         <div i0="panel"></div>
         <div class="actions">
             <div i0="options">
+                <input placeholder="$" type="number" i0="value"/>
+                <button i0="add">+</button>
+                <button i0="sub">-</button>
                 <button i0="open">O</button>
             </div>
             <div class="hidden" i0="actions">
@@ -19,9 +22,27 @@ i0.obj('list-item',
 `,
 (ui, props) => {
 
-    if(props.item) ui.panel.innerText = props.item
+    if(props.item) ui.panel.innerText = `${props.item.name} - $${props.item.value}`
 
     let cd = 0, interval
+
+    ui.add.onclick = () => {
+        let num = parseFloat(ui.value.value)
+        if(num){
+            ui.value.value = ''
+            props.service.update(props.item, {value: props.item.value + num})
+            i0.broadcast('update')
+        }
+    }
+
+    ui.sub.onclick = () => {
+        let num = parseFloat(ui.value.value)
+        if(num){
+            ui.value.value = ''
+            props.service.update(props.item, {value: props.item.value - num})
+            i0.broadcast('update')
+        }
+    }
 
     const checkCD = () => {
         interval = setTimeout(() => {

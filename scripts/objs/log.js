@@ -1,11 +1,11 @@
 import i0 from '../i0.js'
-import affirmations from '../services/affirmations.js'
+import logs from '../services/logs.js'
 
-i0.obj('affirmation', 
+i0.obj('log', 
 `
-    <h1 class="header">Affirmations</h1>
+    <h1 class="header">Logs</h1>
     <form class="form">
-        <input i0="input" placeholder="Affirm Intention">
+        <input i0="input" placeholder="Name">
         <button i0="create" type="submit">+</button>
     </form>
     <div i0="container"></div>
@@ -15,7 +15,7 @@ ui => {
     ui.create.onclick = e => {
         e.preventDefault()
         if(ui.input.value){
-            affirmations.push(ui.input.value)
+            logs.push({title: ui.input.value, ar: []})
             ui.input.value = ''
             i0.broadcast('update')
         }
@@ -23,7 +23,7 @@ ui => {
 
     i0.onbroadcast('update', (selected) => {
         ui.container.innerHTML = ''
-        affirmations.get().forEach((item) => ui.container.appendChild(i0.load('list-item', {item, service: affirmations, open: selected === item})))
+        logs.get().forEach((item) => ui.container.appendChild(i0.load('log-item', {item, service: logs, open: selected === item})))
     })
 
 })

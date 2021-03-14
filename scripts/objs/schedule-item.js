@@ -1,6 +1,6 @@
 import i0 from '../i0.js'
 
-i0.obj('list-item', 
+i0.obj('schedule-item', 
 `
     <div class="panel list-item">
         <div i0="panel"></div>
@@ -19,7 +19,7 @@ i0.obj('list-item',
 `,
 (ui, props) => {
 
-    if(props.item) ui.panel.innerText = props.item
+    if(props.item) ui.panel.innerText = `${props.item.name} - ${props.item.time}`
 
     let cd = 0, interval
 

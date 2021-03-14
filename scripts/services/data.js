@@ -23,6 +23,11 @@ const moveDown = (key, item) => {
         }
     }
 }
+const update = (key, item, changes) => {
+    const updatedItem = Object.assign(item, changes)
+    let i = data[key].indexOf(item)
+    data[key][i] = updatedItem
+}
 
 const init = key => {
     data[key] = []
@@ -31,8 +36,11 @@ const init = key => {
         push: item => push(key, item),
         remove: item => remove(key, item),
         moveUp: item => moveUp(key, item),
-        moveDown: item => moveDown(key, item)
+        moveDown: item => moveDown(key, item),
+        update: (item, changes) => update(key, item, changes)
     }
 }
+
+window.printData = () => console.log(data)
 
 export default {init}

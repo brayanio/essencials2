@@ -59,6 +59,7 @@
     padding-right: 4.2em;
     margin: 15px 0;
     background-color: lightgreen;
+    text-transform: capitalize;
 }
 
 .list-item .actions{
@@ -84,4 +85,28 @@
 .actions button:hover{
     box-shadow: 0 3px 9px rgba(0,0,0,0.39);
     background: lightskyblue;
+}
+
+.actions input{
+    box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+    padding: .1em;
+    border-radius: 9px;
+    border: none;
+    background: lightblue;
+    min-width: 2.7em;
+    min-height: 2em;
+    transition: .3s;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1em;
+    width: 81px;
+}
+
+.actions input:hover{
+    box-shadow: 0 3px 9px rgba(0,0,0,0.39);
+    background: lightskyblue;
+}
+
+.actions .bullet-input:focus{
+    width: 222px;
 }

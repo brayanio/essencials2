@@ -1,11 +1,15 @@
 import i0 from '../i0.js'
 
-i0.obj('list-item', 
+i0.obj('log-item', 
 `
     <div class="panel list-item">
-        <div i0="panel"></div>
+        <b i0="title"></b><br>
+        <ul i0="ul"></ul>
         <div class="actions">
             <div i0="options">
+                <input placeholder="Bullet" i0="bullet" class="bullet-input"/>
+                <button i0="add">+</button>
+                <button i0="collapse">collapse</button>
                 <button i0="open">O</button>
             </div>
             <div class="hidden" i0="actions">
@@ -19,9 +23,25 @@ i0.obj('list-item',
 `,
 (ui, props) => {
 
-    if(props.item) ui.panel.innerText = props.item
+    if(props.item) ui.title.innerText = props.item.title
+
+    if(props.item.ar) props.item.ar.forEach(bullet => ui.ul.appendChild(i0.element(`<li>${bullet}</li>`)))
 
     let cd = 0, interval
+
+    ui.add.onclick = () => {
+        if(ui.bullet.value){
+            const ar = [].concat(props.item.ar)
+            ar.push(ui.bullet.value)
+            props.service.update(props.item, {ar})
+            ui.bullet.value = ''
+            i0.broadcast('update')
+        }
+    }
+
+    ui.collapse.onclick = () => {
+        
+    }
 
     const checkCD = () => {
         interval = setTimeout(() => {

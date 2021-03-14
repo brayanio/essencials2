@@ -1,5 +1,12 @@
 import affirmation from './affirmation.js'
 import budget from './budget.js'
+import budgetitem from './budget-item.js'
+import goal from './goal.js'
+import goalitem from './goal-item.js'
 import listitem from './list-item.js'
+import log from './log.js'
+import logitem from './log-item.js'
 import panel from './panel.js'
+import schedule from './schedule.js'
+import scheduleitem from './schedule-item.js'
 export default {}
