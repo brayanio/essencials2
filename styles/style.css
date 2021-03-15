@@ -6,15 +6,17 @@
 }
 
 html{
-    background-color: rgba(0,0,0,0.03);
+    background-image: linear-gradient(purple, indigo);
+    min-height: 100%;
 }
 
 app{
     display: block;
-    background-color: white;
     padding: 9px;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.06);
-    border-radius: 9px;
+    border-radius: 3px;
+    overflow-y: auto;
+    max-height: calc(100% - 18px);
+    background-image: linear-gradient(white, violet);
 }
 
 @media screen and (min-width: 800px){

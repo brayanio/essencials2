@@ -3,12 +3,14 @@ import affirmations from '../services/affirmations.js'
 
 i0.obj('affirmation', 
 `
+<section class="section">
     <h1 class="header">Affirmations</h1>
     <form class="form">
         <input i0="input" placeholder="Affirm Intention">
         <button i0="create" type="submit">+</button>
     </form>
-    <div i0="container"></div>
+    <div i0="container" class="container"></div>
+</section>
 `,
 ui => {
 

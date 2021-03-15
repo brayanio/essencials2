@@ -3,12 +3,14 @@ import goals from '../services/goals.js'
 
 i0.obj('goal', 
 `
+<section class="section">
     <h1 class="header">Goals</h1>
     <form class="form">
         <input i0="input" placeholder="Set your goal!">
         <button i0="create" type="submit">+</button>
     </form>
-    <div i0="container"></div>
+    <div i0="container" class="container"></div>
+</section>
 `,
 ui => {
 

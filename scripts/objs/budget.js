@@ -3,12 +3,14 @@ import budgets from '../services/budgets.js'
 
 i0.obj('budget', 
 `
+<section class="section">
     <h1 class="header">Budget</h1>
     <form class="form">
         <input i0="input" placeholder="Budget Name">
         <button i0="create" type="submit">+</button>
     </form>
-    <div i0="container"></div>
+    <div i0="container" class="container"></div>
+</section>
 `,
 ui => {
 

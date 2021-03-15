@@ -3,12 +3,14 @@ import logs from '../services/logs.js'
 
 i0.obj('log', 
 `
+<section class="section">
     <h1 class="header">Logs</h1>
     <form class="form">
         <input i0="input" placeholder="Name">
         <button i0="create" type="submit">+</button>
     </form>
-    <div i0="container"></div>
+    <div i0="container" class="container"></div>
+</section>
 `,
 ui => {
 

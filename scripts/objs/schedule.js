@@ -3,13 +3,15 @@ import schedule from '../services/schedule.js'
 
 i0.obj('schedule', 
 `
+<section class="section">
     <h1 class="header">Schedule</h1>
     <form class="form">
         <input i0="input" placeholder="Task">
         <input i0="time" type="time">
         <button i0="create" type="submit">+</button>
     </form>
-    <div i0="container"></div>
+    <div i0="container" class="container"></div>
+</section>
 `,
 ui => {
 

@@ -1,47 +1,73 @@
-.form{
-    background: lightgreen;
+.section{
+    background-color: transparent;
+    border-radius: 3px;
+    transition: .6s;
     padding: 12px;
-    border-radius: 9px;
+}
+
+.section:hover, .section:focus-within{
+    background-color: rgba(201,0,0,0.12);
+    border-radius: 6px;
+}
+
+.form{
+    background-color: transparent;
+    padding: 12px;
+    border-radius: 3px;
     position: relative;
     display: inline-block;
     padding-right: 4.2em;
+    transition: .3s;
+}
+
+.section:focus-within .form, .section:hover .form{
+    background-color: rgba(201,0,0,0.12);
 }
 
 .form input{
     box-shadow: 0 3px 6px rgba(0,0,0,0.3);
     padding: 3px;
-    border-radius: 9px;
+    border-radius: 6px;
     border: none;
-    background: lightblue;
-    transition: .3s;
+    background-image: linear-gradient(white, lightgreen);
     min-height: 2.1em;
     font-weight: bold;
     text-transform: capitalize;
     font-size: 1em;
+    /* border: solid 3px transparent; */
 }
 
 .form input:hover{
-    background: lightskyblue;
+    background-image: linear-gradient(lightgreen, lightgreen);
     box-shadow: 0 3px 9px rgba(0,0,0,0.39);
+}
+
+.form input:focus{
+    outline: solid 3px indigo;
 }
 
 .form button{
     box-shadow: 0 3px 6px rgba(0,0,0,0.3);
     padding: .1em;
-    border-radius: 9px;
+    border-radius: 6px;
     border: none;
     background: lightblue;
+    background-image: linear-gradient(white, lightblue);
     min-width: 2.7em;
     min-height: 2em;
-    transition: .3s;
     cursor: pointer;
     font-weight: bold;
     font-size: 1em;
+    /* border: solid 3px transparent; */
 }
 
 .form button:hover{
     box-shadow: 0 3px 9px rgba(0,0,0,0.39);
-    background: lightskyblue;
+    background-image: linear-gradient(lightblue, lightblue);
+}
+
+.form button:focus{
+    outline: solid 3px indigo;
 }
 
 .form button[type=submit]{
@@ -50,15 +76,29 @@
     right: .6em;
 }
 
-.list-item{
-    padding: 12px;
+/* list items */
+
+.container:empty{
+    background-color: transparent;
+}
+
+.container{
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: 3px 3px;
+    margin: 6px 0;
     border-radius: 9px;
+    transition: 3s;
+}
+
+.list-item{
+    padding: 24px 12px;
+    border-radius: 3px;
     position: relative;
     display: flex;
     justify-content: space-between;
     padding-right: 4.2em;
-    margin: 15px 0;
-    background-color: lightgreen;
+    margin: 18px 0;
+    background-color: rgba(255, 255, 255, 0.72);
     text-transform: capitalize;
 }
 
@@ -80,6 +120,7 @@
     cursor: pointer;
     font-weight: bold;
     font-size: 1em;
+    background-image: linear-gradient(white, lightblue);
 }
 
 .actions button:hover{
