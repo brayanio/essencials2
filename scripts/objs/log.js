@@ -3,7 +3,7 @@ import logs from '../services/logs.js'
 
 i0.obj('log', 
 `
-<section class="section">
+<section class="section long">
     <h1 class="header">Logs</h1>
     <form class="form">
         <input i0="input" placeholder="Name">

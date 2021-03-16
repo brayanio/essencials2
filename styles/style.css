@@ -3,9 +3,11 @@
 
 *{    
     font-family: 'Inter', sans-serif;
+    box-sizing: border-box;
 }
 
 html{
+    background-color: indigo;
     background-image: linear-gradient(purple, indigo);
     min-height: 100%;
 }
@@ -16,14 +18,39 @@ app{
     border-radius: 3px;
     overflow-y: auto;
     max-height: calc(100% - 18px);
-    background-image: linear-gradient(white, violet);
+    background-image: linear-gradient(#e4c4e4, violet);
 }
 
-@media screen and (min-width: 800px){
+@media screen and (min-width: 1200px){
     app{
         width: 81%;
         margin: 0 9%;
     }
+    
+    .d-flex{
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .d-flex > section{
+        width: 50%;
+    }
+    
+    .d-flex > section.long{
+        width: 100%;
+    }
+
+    .m{
+        display: none !important;
+    }
+
+    hr.m{
+        margin: 3px 0;
+    }
+}
+
+hr.m{
+    border: 0px solid transparent;
 }
 
 .hidden{
@@ -49,4 +76,10 @@ app{
     box-shadow: 0 3px 6px rgba(0,0,0,0.06);
     padding: 9px;
     border-radius: 9px;
+}
+
+@media screen and (max-width: 1200px){
+    .panel{
+        min-height: 60px;
+    }
 }

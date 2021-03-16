@@ -7,6 +7,7 @@ i0.obj('schedule',
     <h1 class="header">Schedule</h1>
     <form class="form">
         <input i0="input" placeholder="Task">
+        <hr class="m">
         <input i0="time" type="time">
         <button i0="create" type="submit">+</button>
     </form>
