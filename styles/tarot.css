@@ -1,0 +1,16 @@
+.tarot-img{
+    border-radius: 9px;
+}
+
+@media screen and (max-width: 1000px){
+    .tarot-img{
+        max-width: 100%;
+        padding: 21px;
+    }
+}
+
+@media screen and (min-width: 1000px){
+    .tarot-img{
+        width: 9%;
+    }
+}

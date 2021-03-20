@@ -5,7 +5,7 @@ i0.obj('affirmation',
 `
 <section class="section">
     <h1 class="header">Affirmations</h1>
-    <form class="form">
+    <form class="form" i0="form">
         <input i0="input" placeholder="Affirm Intention">
         <button i0="create" type="submit">+</button>
     </form>
@@ -27,6 +27,9 @@ ui => {
         ui.container.innerHTML = ''
         affirmations.get().forEach((item) => ui.container.appendChild(i0.load('list-item', {item, service: affirmations, open: selected === item})))
     })
+
+    i0.onbroadcast('editmode', () => ui.form.classList.remove('hidden'))
+    i0.onbroadcast('viewmode', () => ui.form.classList.add('hidden'))
 
 })
 

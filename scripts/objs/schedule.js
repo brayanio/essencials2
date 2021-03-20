@@ -5,7 +5,7 @@ i0.obj('schedule',
 `
 <section class="section">
     <h1 class="header">Schedule</h1>
-    <form class="form">
+    <form class="form" i0="form">
         <input i0="input" placeholder="Task">
         <hr class="m">
         <input i0="time" type="time">
@@ -31,6 +31,8 @@ ui => {
         ui.container.innerHTML = ''
         schedule.get().forEach(item => ui.container.appendChild(i0.load('schedule-item', {item, service: schedule, open: selected === item})))
     })
+    i0.onbroadcast('editmode', () => ui.form.classList.remove('hidden'))
+    i0.onbroadcast('viewmode', () => ui.form.classList.add('hidden'))
 
 })
 

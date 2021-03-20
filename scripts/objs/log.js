@@ -5,7 +5,7 @@ i0.obj('log',
 `
 <section class="section long">
     <h1 class="header">Logs</h1>
-    <form class="form">
+    <form class="form" i0="form">
         <input i0="input" placeholder="Name">
         <button i0="create" type="submit">+</button>
     </form>
@@ -27,6 +27,8 @@ ui => {
         ui.container.innerHTML = ''
         logs.get().forEach((item) => ui.container.appendChild(i0.load('log-item', {item, service: logs, open: selected === item})))
     })
+    i0.onbroadcast('editmode', () => ui.form.classList.remove('hidden'))
+    i0.onbroadcast('viewmode', () => ui.form.classList.add('hidden'))
 
 })
 

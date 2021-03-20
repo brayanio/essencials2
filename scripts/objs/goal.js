@@ -5,7 +5,7 @@ i0.obj('goal',
 `
 <section class="section">
     <h1 class="header">Goals</h1>
-    <form class="form">
+    <form class="form" i0="form">
         <input i0="input" placeholder="Set your goal!">
         <button i0="create" type="submit">+</button>
     </form>
@@ -27,6 +27,8 @@ ui => {
         ui.container.innerHTML = ''
         goals.get().forEach((item) => ui.container.appendChild(i0.load('goal-item', {item, service: goals, open: selected === item})))
     })
+    i0.onbroadcast('editmode', () => ui.form.classList.remove('hidden'))
+    i0.onbroadcast('viewmode', () => ui.form.classList.add('hidden'))
 
 })
 

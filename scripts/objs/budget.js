@@ -5,7 +5,7 @@ i0.obj('budget',
 `
 <section class="section">
     <h1 class="header">Budget</h1>
-    <form class="form">
+    <form class="form" i0="form">
         <input i0="input" placeholder="Budget Name">
         <button i0="create" type="submit">+</button>
     </form>
@@ -28,6 +28,9 @@ ui => {
         ui.container.innerHTML = ''
         budgets.get().forEach(item => ui.container.appendChild(i0.load('budget-item', {item, service: budgets, open: selected === item})))
     })
+
+    i0.onbroadcast('editmode', () => ui.form.classList.remove('hidden'))
+    i0.onbroadcast('viewmode', () => ui.form.classList.add('hidden'))
 
 })
 
