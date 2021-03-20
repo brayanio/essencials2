@@ -4,7 +4,7 @@ import goals from '../services/goals.js'
 i0.obj('goal', 
 `
 <section class="section">
-    <h1 class="header">Goals</h1>
+    <b class="header">Goals</b>
     <form class="form" i0="form">
         <input i0="input" placeholder="Set your goal!">
         <button i0="create" type="submit">+</button>

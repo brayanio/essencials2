@@ -72,6 +72,10 @@ hr.m{
     margin-bottom: 12px;
 }
 
+.cap{
+    text-transform: capitalize;
+}
+
 .panel{
     display: block;
     box-shadow: 0 3px 6px rgba(0,0,0,0.06);
@@ -96,7 +100,27 @@ hr.m{
     color: white;
 }
 
+.nav-link{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 9px 21px;
+    font-size: 1.2em;
+}
+
 .right{
     display: flex;
     justify-content: flex-end;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.space-between{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }

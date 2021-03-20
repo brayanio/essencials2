@@ -1,16 +1,32 @@
+.tarot-container{
+    display: inline-block;
+}
+
 .tarot-img{
     border-radius: 9px;
+    max-width: 100%;
+}
+
+.tarot-desc{
+    height: 222px;
 }
 
 @media screen and (max-width: 1000px){
-    .tarot-img{
-        max-width: 100%;
+    .tarot-container{
         padding: 21px;
     }
 }
 
 @media screen and (min-width: 1000px){
-    .tarot-img{
-        width: 9%;
+    .tarot-container{
+        width: 30%;
+        padding: 6px;
+    }
+}
+
+@media screen and (min-width: 2000px){
+    .tarot-container{
+        width: 21%;
+        padding: 6px;
     }
 }

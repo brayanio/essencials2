@@ -4,7 +4,7 @@ import affirmations from '../services/affirmations.js'
 i0.obj('affirmation', 
 `
 <section class="section">
-    <h1 class="header">Affirmations</h1>
+    <b class="header">Affirmations</b>
     <form class="form" i0="form">
         <input i0="input" placeholder="Affirm Intention">
         <button i0="create" type="submit">+</button>

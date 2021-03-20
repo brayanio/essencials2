@@ -9,4 +9,7 @@ import logitem from './log-item.js'
 import panel from './panel.js'
 import schedule from './schedule.js'
 import scheduleitem from './schedule-item.js'
+import tarot from './tarot.js'
+import tarotcard from './tarot-card.js'
+import tarotreading from './tarot-reading.js'
 export default {}

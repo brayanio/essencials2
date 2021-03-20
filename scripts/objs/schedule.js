@@ -4,7 +4,7 @@ import schedule from '../services/schedule.js'
 i0.obj('schedule', 
 `
 <section class="section">
-    <h1 class="header">Schedule</h1>
+    <b class="header">Schedule</b>
     <form class="form" i0="form">
         <input i0="input" placeholder="Task">
         <hr class="m">
