@@ -7,10 +7,6 @@
     max-width: 100%;
 }
 
-.tarot-desc{
-    height: 222px;
-}
-
 @media screen and (max-width: 1000px){
     .tarot-container{
         padding: 21px;
@@ -21,6 +17,10 @@
     .tarot-container{
         width: 30%;
         padding: 6px;
+    }
+
+    .tarot-desc{
+        height: 222px;
     }
 }
 
