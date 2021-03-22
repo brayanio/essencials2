@@ -32,7 +32,6 @@
     background-image: linear-gradient(white, lightgreen);
     min-height: 2.1em;
     font-weight: bold;
-    text-transform: capitalize;
     font-size: 1em;
     /* border: solid 3px transparent; */
 }

@@ -11,7 +11,7 @@ i0.obj('tarot',
 `,
 ui => {
     
-    Object.values(tarot).forEach(tarotCard => {
+    Object.values(tarot()).forEach(tarotCard => {
         ui.container.appendChild(i0.load('tarot-card', tarotCard))
     })
 

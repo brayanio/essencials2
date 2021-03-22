@@ -1,5 +1,6 @@
 import i0 from '../i0.js'
 import tarot from './tarot.js'
+import cardsService from '../services/cards.js'
 
 i0.obj('tarot-reading', 
 `
@@ -8,14 +9,14 @@ i0.obj('tarot-reading',
     <div i0="container" class="container center"></div>
 </section>
 `,
-ui => {
+async ui => {
 
     const removeRandom = (array) => {
         const random = Math.floor(Math.random() * array.length)
         return array.splice(random, 1)[0]
      };
 
-    const tarotAr = Object.values(tarot)
+    const tarotAr = Object.values(tarot())
 
     let cards = [
         removeRandom(tarotAr),
@@ -23,31 +24,49 @@ ui => {
         removeRandom(tarotAr)
     ]
 
-    const sameDay = (d1, d2) => {
-        return d1.getFullYear() === d2.getFullYear() &&
-          d1.getMonth() === d2.getMonth() &&
-          d1.getDate() === d2.getDate();
-      }
-
-    if(!localStorage.cards){
-        localStorage.cards = JSON.stringify({
-            date: new Date(),
-            cards
-        })
-    } else {
-        const save = JSON.parse(localStorage.cards)
-        if(sameDay(new Date(save.date), new Date()))
-            cards = save.cards
-    }
-    
     cards.forEach(card => {
         if((Math.random() * 100) <= 33.33)
             card.reversed = true
         card.reading = true
-        ui.container.appendChild(i0.load('tarot-card', card))
     })
 
+    const sameDay = (d1, d2) => d1.getFullYear() === d2.getFullYear() 
+        && d1.getMonth() === d2.getMonth() 
+        && d1.getDate() === d2.getDate()
+
+    if(!cardsService.get()[0]){
+        cardsService.push({
+            date: new Date().toDateString(),
+            cards: cards.map(c => { return {
+                name: c.name.toLowerCase().split(' ').join(''),
+                reversed: c.reversed || false,
+                reading: true
+            }})
+        })
+    } else {
+        const save = cardsService.get()[0]
+        if(sameDay(new Date(save.date), new Date())){
+            cards = save.cards.map(c => {
+                const card = tarot()[c.name]
+                if(c.reversed) card.reversed = true
+                card.reading = true
+                return card
+            })
+        }
+        else {
+            cardsService.remove(save)
+            cardsService.push({
+                date: new Date(),
+                cards: cards.map(c => { return {
+                    name: c.name.toLowerCase().split(' ').join(''),
+                    reversed: c.reversed || false,
+                    reading: true
+                }})
+            })
+        }
+    }
     
+    cards.forEach(card => ui.container.appendChild(i0.load('tarot-card', card)))
 
 })
 

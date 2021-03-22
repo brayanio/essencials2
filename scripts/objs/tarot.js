@@ -2,7 +2,7 @@ import i0 from '../i0.js'
 
 const asset = src => `./assets/${src}.PNG`
 
-export default {
+export default () => { return {
     thefool: {
         name: 'The Fool',
         suit: 'arcana',
@@ -179,4 +179,4 @@ export default {
         reverseAdvice: `A slight slowdown in the flow of events or the need for more introspection as events unfold. Practice trusting and relaxing into the nurturing support of the Great Mother Goddess, while things sort themselves out.`,
         desc: "The World is the last card of the Major Arcana, and represents completion, success, and fulfillment. When she arises in your Tarot Reading, The World shows you that you are exactly where you are meant to be on your path. You have a greater understanding of who you are after all you've been through, and you're ready for the next phase of your journey."
     },
-}
+} }

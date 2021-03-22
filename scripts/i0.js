@@ -130,7 +130,7 @@ const onFetch = (path, body) => target
 // utils
 const form = el => {
     let obj = {}
-    Array.from(el).forEach(e => {obj[e.id] = {value: e.value, el: e}})
+    Array.from(el).forEach(e => {obj[e.getAttribute('i0form')] = {value: e.value, el: e}})
 
     obj.clearForm = () => {
         Object.values(obj).forEach(val => {

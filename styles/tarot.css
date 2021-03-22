@@ -5,6 +5,19 @@
 .tarot-img{
     border-radius: 9px;
     max-width: 100%;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+}
+
+.tarot-container{
+    padding: 6px;
+    margin: 6px;
+    border-radius: 6px;
+    background-color: rgba(0,0,0,0.03);
+}
+
+.reversed{
+    transform: rotate(180deg);
+    box-shadow: 0 -3px 5px rgba(0, 0, 0, 0.3);
 }
 
 @media screen and (max-width: 1000px){
@@ -16,9 +29,10 @@
 @media screen and (min-width: 1000px){
     .tarot-container{
         width: 30%;
-        padding: 6px;
     }
+}
 
+@media screen and (min-width: 1800px){
     .tarot-desc{
         height: 222px;
     }
@@ -27,6 +41,9 @@
 @media screen and (min-width: 2000px){
     .tarot-container{
         width: 21%;
-        padding: 6px;
+    }
+
+    .tarot-img{    
+        max-width: 333px;
     }
 }
