@@ -102,11 +102,16 @@ hr.m{
 }
 
 .nav-link{
-    display: flex;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
     padding: 9px 21px;
     font-size: 1.2em;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: blue;
+    text-decoration: underline;
 }
 
 .right{

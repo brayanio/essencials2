@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<head>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <script src="https://www.paypal.com/sdk/js?client-id=AWVDh0RWySl45RWR5hO2uhMoiutLLmS66iRHpLICeYhSg6DHaBCr8q3-YyECXB3n9-9Kc9d9ZBQtmLf0&vault=true"></script>
+</head>
+<body>
+      <div class="paypal-button" id="paypal-plan-container-P-6PS84647XY583314LMBMNLOA"></div>
+      <script>
+          paypal.Buttons({
+             style: {
+               label: 'subscribe'
+             },
+             createSubscription: function(data, actions) {
+               return actions.subscription.create({
+                 'plan_id': 'P-6PS84647XY583314LMBMNLOA'
+               });
+             },
+             onApprove: function(data, actions) {
+               alert(data.subscriptionID);
+             }
+          }).render('#paypal-plan-container-P-6PS84647XY583314LMBMNLOA');
+   </script>
+</body>

@@ -4,16 +4,20 @@ const today = () => `${new Date().getMonth() + 1}/${new Date().getDate()}/${new 
 
 i0.obj('home', 
 `
-<b class="header">${today()}</b>
-<div class="right">
+<div class="space-between">
+    <b class="header">${today()}</b>
     <button i0="view" class="fixed-btn">View Mode</button>
     <button i0="edit" class="fixed-btn hidden">Edit Mode</button>
+</div>
+<div>
+    <button i0="sub" class="nav-link">Subscribe</button>
     <a href="#progressions" class="nav-link">Progressions</a>
     <a href="#tarot" class="nav-link">Tarot</a>
 </div>
 <hr class="m">
 <div class="d-flex" i0="container"></div>
 <hr i0="signup">
+<hr i0="subscribe">
 `,
 ui => {
 
@@ -39,6 +43,8 @@ ui => {
     })
 
     i0.load('signup-modal', {}, ui.signup)
+    i0.load('subscribe', {}, ui.subscribe)
+    ui.sub.onclick = () => i0.broadcast('sub-modal')
 })
 
 export default {}
