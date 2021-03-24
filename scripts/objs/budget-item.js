@@ -7,15 +7,15 @@ i0.obj('budget-item',
         <div class="actions">
             <div i0="options">
                 <input placeholder="$" type="number" i0="value"/>
-                <button i0="add">+</button>
-                <button i0="sub">-</button>
-                <button i0="open">O</button>
+                <button i0="add"><i class="material-icons">add</i></button>
+                <button i0="sub"><i class="material-icons">remove</i></button>
+                <button i0="open"><i class="material-icons">more_horiz</i></button>
             </div>
             <div class="hidden" i0="actions">
-                <button i0="moveUp">^</button>
-                <button i0="moveDown">v</button>
-                <button i0="remove">-</button>
-                <button i0="close">x</button>
+                <button i0="moveUp"><i class="material-icons">arrow_upward</i></button>
+                <button i0="moveDown"><i class="material-icons">arrow_downward</i></button>
+                <button i0="remove"><i class="material-icons">remove_circle</i></button>
+                <button i0="close"><i class="material-icons">cancel</i></button>
             </div>
         </div>
     </div>    

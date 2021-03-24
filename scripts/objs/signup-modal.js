@@ -12,7 +12,7 @@ i0.obj('signup-modal',
             <form class="form" i0="signinForm">
                 <input i0form="email" type="email" placeholder="Email"><br><br>
                 <input i0form="password" type="password" placeholder="Password"><br><br>
-                <button i0form="submit" type="submit">></button>
+                <button i0form="submit" type="submit"><i class="material-icons">chevron_right</i></button>
             </form>
             <br><br>
             <b class="header">Sign Up</b>
@@ -20,7 +20,7 @@ i0.obj('signup-modal',
                 <input i0form="email" type="email" placeholder="Email"><br><br>
                 <input i0form="password" type="password" placeholder="Password"><br><br>
                 <input i0form="confirm" type="password" placeholder="Confirm Password"><br><br>
-                <button i0form="submit" type="submit">></button>
+                <button i0form="submit" type="submit"><i class="material-icons">chevron_right</i></button>
             </form>
         </section>
     </div>

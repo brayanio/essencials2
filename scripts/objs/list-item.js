@@ -6,13 +6,13 @@ i0.obj('list-item',
         <div i0="panel"></div>
         <div class="actions">
             <div i0="options">
-                <button i0="open">O</button>
+                <button i0="open"><i class="material-icons">more_horiz</i></button>
             </div>
             <div class="hidden" i0="actions">
-                <button i0="moveUp">^</button>
-                <button i0="moveDown">v</button>
-                <button i0="remove">-</button>
-                <button i0="close">x</button>
+                <button i0="moveUp"><i class="material-icons">arrow_upward</i></button>
+                <button i0="moveDown"><i class="material-icons">arrow_downward</i></button>
+                <button i0="remove"><i class="material-icons">remove_circle</i></button>
+                <button i0="close"><i class="material-icons">cancel</i></button>
             </div>
         </div>
     </div>    
