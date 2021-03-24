@@ -158,16 +158,32 @@
     border-radius: 6px;
 }
 
-.link-card > iframe{
+.link-card iframe{
     border-radius: 6px;
 }
 
-.link-card > div{
+.link-card .video{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.link-card .text{
     padding: 12px;
 }
 
 @media screen and (min-width: 1000px){
-    .link-card > div{
+    .link-card .text{
         padding: 24px;
+    }
+}
+
+@media screen and (max-width: 1000px){
+    .link-card{
+        flex-wrap: wrap;
+        background: rgba(255, 255, 255, 0.24);
+    }
+    .link-card .video{
+        width: 100%;
     }
 }
