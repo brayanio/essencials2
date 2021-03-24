@@ -150,3 +150,24 @@
 .actions .bullet-input:focus{
     width: 222px;
 }
+
+.link-card{
+    display: flex;
+    margin: 12px;
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 6px;
+}
+
+.link-card > iframe{
+    border-radius: 6px;
+}
+
+.link-card > div{
+    padding: 12px;
+}
+
+@media screen and (min-width: 1000px){
+    .link-card > div{
+        padding: 24px;
+    }
+}
