@@ -154,7 +154,7 @@
 .link-card{
     display: flex;
     margin: 12px;
-    background: rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.24);
     border-radius: 6px;
 }
 
@@ -181,7 +181,7 @@
 @media screen and (max-width: 1000px){
     .link-card{
         flex-wrap: wrap;
-        background: rgba(255, 255, 255, 0.24);
+        background: rgba(255, 255, 255, 0.48);
     }
     .link-card .video{
         width: 100%;

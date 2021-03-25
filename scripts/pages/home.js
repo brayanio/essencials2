@@ -11,7 +11,7 @@ const sameDay = (d1, d2) => d1.getFullYear() === d2.getFullYear()
 i0.obj('home', 
 `
 <div class="space-between">
-    <b class="header">${today()}</b>
+    <b class="header v-center"><img src="./assets/ico.png" width="64px">${today()}</b>
     <button i0="view" class="fixed-btn" title="View Mode"><i class="material-icons">visibility</i></button>
     <button i0="edit" class="fixed-btn hidden" title="Edit Mode"><i class="material-icons">mode_edit</i></button>
 </div>

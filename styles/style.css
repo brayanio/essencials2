@@ -134,3 +134,12 @@ hr.m{
 .text-center{
     text-align: center;
 }
+
+.v-center{
+    display: flex;
+    align-items: center;
+}
+
+.billboard{
+    padding: 0 12%;
+}

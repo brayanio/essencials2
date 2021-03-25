@@ -1,6 +1,7 @@
 import i0 from '../i0.js'
 import logs from '../services/logs.js'
 import linkcardAr from '../objs/link-card-ar.js'
+import data from '../services/data.js'
 
 i0.obj('growth', 
 `
@@ -15,8 +16,8 @@ i0.obj('growth',
 `,
 ui => {
 
-    if(!localStorage.sessionId || !localStorage.email)
-        location.hash = '#home'
+    if(!data.loaded())
+        return location.hash = '#home'
 
     const removeRandom = (array) => {
         const random = Math.floor(Math.random() * array.length)
@@ -32,7 +33,7 @@ ui => {
     ]
 
     cards.forEach(card => ui.container.appendChild(i0.load('link-card', card)))
-    
+        
 })
 
 export default {}
