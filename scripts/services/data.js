@@ -14,7 +14,14 @@ const save = async key => {
 
 const load = async () => {
     if(localStorage.email && localStorage.sessionId){
-        const res = await i0.fetch('data', {email: localStorage.email, sessionId: localStorage.sessionId, load: true})
+        let res = await i0.fetch('signin', {email: localStorage.email, sessionId: localStorage.sessionId})
+        if(!res || res.error) {
+            console.error(res)
+            localStorage.clear()
+            return null
+        }
+        i0.broadcast('signin', res)
+        res = await i0.fetch('data', {email: localStorage.email, sessionId: localStorage.sessionId, load: true})
         console.log('dataloaded', res)
         if(res.error) console.error(res.error)
         else {

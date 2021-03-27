@@ -1,6 +1,7 @@
 import affirmation from './affirmation.js'
 import budget from './budget.js'
 import budgetitem from './budget-item.js'
+import freetrial from './freetrial-modal.js'
 import goal from './goal.js'
 import goalitem from './goal-item.js'
 import linkcard from './link-card.js'
@@ -13,4 +14,5 @@ import subscribe from './subscribe.js'
 import tarot from './tarot.js'
 import tarotcard from './tarot-card.js'
 import tarotreading from './tarot-reading.js'
+import verification from './verification-modal.js'
 export default {}

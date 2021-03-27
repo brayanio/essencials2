@@ -10,7 +10,7 @@ i0.obj('subscribe',
             </div>
             <p class="center billboard">
                 <b class="p-header v-center">
-                    Essencials Monthy Subscription - $5 / month
+                    Essencials Subscription $5 / month
                 </b>
                 Join Essencials and start the journey of self improvement today! By showing Essencials support, we will be able to add new features and more custom content just for you.
             </p>

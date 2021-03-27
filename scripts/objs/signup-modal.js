@@ -17,6 +17,9 @@ i0.obj('signup-modal',
             <br><br>
             <b class="header">Sign Up</b>
             <form class="form" i0="signupForm">
+                <input i0form="first" placeholder="First Name"><br><br>
+                <input i0form="last" placeholder="Last Name"><br><br>
+                <input i0form="nickname" placeholder="Nick Name" title="We will call you by this name"><br><br>
                 <input i0form="email" type="email" placeholder="Email"><br><br>
                 <input i0form="password" type="password" placeholder="Password"><br><br>
                 <input i0form="confirm" type="password" placeholder="Confirm Password"><br><br>
@@ -74,7 +77,10 @@ async (ui, props) => {
             } else {
                 const email = signup.email.value
                 const password = signup.password.value
-                let res = await i0.fetch('signin', {signup:true, email, password})
+                const firstname = signup.first.value
+                const lastname = signup.last.value
+                const nickname = signup.nickname.value
+                let res = await i0.fetch('signin', {signup:true, email, password, firstname, lastname, nickname})
                 console.log(res)
                 if(!res.error){
                     ui.modal.classList.add('hidden')

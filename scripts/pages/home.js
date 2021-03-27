@@ -16,13 +16,15 @@ i0.obj('home',
     <button i0="edit" class="fixed-btn hidden" title="Edit Mode"><i class="material-icons">mode_edit</i></button>
 </div>
 <div>
-    <button i0="sub" class="nav-link">Subscribe</button>
     <a href="#growth" class="nav-link">Growth</a>
+    <a href="#feedback" class="nav-link">Feedback</a>
 </div>
 <hr class="m">
 <div class="d-flex" i0="container"></div>
 <hr i0="signup">
 <hr i0="subscribe">
+<hr i0="freetrial">
+<hr i0="verify">
 `,
 ui => {
 
@@ -36,6 +38,15 @@ ui => {
         ui.edit.classList.add('hidden')
         ui.view.classList.remove('hidden')
     }
+
+    i0.onbroadcast('signin', a => {
+        console.log('sign in', a)
+        if(a){
+            if(!a.verified) return i0.broadcast('verify-modal')
+            if(!a.freeTrial) return i0.broadcast('freetrial-modal')
+            if(!a.subTime) return i0.broadcast('sub-modal')
+        }
+    })
 
     i0.onbroadcast('dataloaded', () => {
         ui.container.appendChild(i0.load('affirmation'))
@@ -54,7 +65,8 @@ ui => {
 
     i0.load('signup-modal', {}, ui.signup)
     i0.load('subscribe', {}, ui.subscribe)
-    ui.sub.onclick = () => i0.broadcast('sub-modal')
+    i0.load('freetrial', {}, ui.freetrial)
+    i0.load('verify', {}, ui.verify)
 })
 
 export default {}
