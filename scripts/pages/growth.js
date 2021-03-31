@@ -46,14 +46,18 @@ ui => {
 
     console.log('cards', cards)
 
+    const loadCards = () => {
+        let save = Object.assign({}, videos.get()[0])
+        save.cards = save.cards.map(i => linkcardAr()[i])
+        cards = save.cards
+    }
+
     if(!videos.get().length){
         videos.push({
             date: new Date().toDateString(),
             cards: cards.map(o => o.i)
         })
-        let save = videos.get()[0]
-        save.cards = save.cards.map(i => linkcardAr()[i])
-        cards = save.cards
+        loadCards()
     } else {
         let save = videos.get()[0]
         let savedDate = new Date(save.date)
@@ -64,12 +68,9 @@ ui => {
                 date: new Date().toDateString(),
                 cards: cards.map(o => o.i)
             })
-            save = videos.get()[0]
-            save.cards = save.cards.map(i => linkcardAr()[i])
-            cards = save.cards
+            loadCards()
         } else {
-            save.cards = save.cards.map(i => linkcardAr()[i])
-            cards = save.cards
+            loadCards()
         }
     }
 
@@ -95,9 +96,7 @@ ui => {
                 cards: cards.map(o => o.i)
             })
             
-            let save = videos.get()[0]
-            save.cards = save.cards.map(i => linkcardAr()[i])
-            cards = save.cards
+            loadCards()
 
             console.log('updated cards', cards)
 
