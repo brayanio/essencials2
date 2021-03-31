@@ -1,6 +1,7 @@
 import i0 from '../i0.js'
 import affirmations from '../objs/affirmations.js'
 import notify from '../services/notify.js'
+import saveday from '../services/save-day.js'
 
 const today = () => `${new Date().getMonth() + 1}/${new Date().getDate()}/${new Date().getFullYear()}`
 
@@ -10,10 +11,13 @@ const sameDay = (d1, d2) => d1.getFullYear() === d2.getFullYear()
 
 i0.obj('home', 
 `
-<div class="space-between">
+<div class="space-between v-center">
     <b class="header v-center"><img src="./assets/ico.png" width="64px">${today()}</b>
-    <button i0="view" class="fixed-btn" title="View Mode"><i class="material-icons">visibility</i></button>
-    <button i0="edit" class="fixed-btn hidden" title="Edit Mode"><i class="material-icons">mode_edit</i></button>
+    <div>
+        <button i0="download" class="fixed-btn" title="Download todays data"><i class="material-icons">download</i></button>
+        <button i0="view" class="fixed-btn" title="View Mode"><i class="material-icons">visibility</i></button>
+        <button i0="edit" class="fixed-btn hidden" title="Edit Mode"><i class="material-icons">mode_edit</i></button>
+    </div>
 </div>
 <div>
     <a href="#growth" class="nav-link">Growth</a>
@@ -38,6 +42,7 @@ ui => {
         ui.edit.classList.add('hidden')
         ui.view.classList.remove('hidden')
     }
+    ui.download.onclick = () => saveday.download()
 
     i0.onbroadcast('signin', a => {
         console.log('sign in', a)

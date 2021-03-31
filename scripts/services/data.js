@@ -80,4 +80,4 @@ const init = key => {
 
 window.printData = () => console.log(data)
 
-export default {init, save, load, loaded: () => loaded}
+export default {init, save, load, loaded: () => loaded, read: () => data}
