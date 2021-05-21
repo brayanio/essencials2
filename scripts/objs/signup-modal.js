@@ -6,7 +6,10 @@ i0.obj('signup-modal',
     <div class="modal-bg" i0="modal">
         <section class="modal section">
             <div class="space-between">
-                <b class="header">Sign In</b>
+                <b class="header v-center">
+                    ${i0.nugget('logo')}
+                    <span i0="title"></span>
+                </b>
                 <a href="#" class="nav-link">X</a>
             </div>
             <form class="form" i0="signinForm">
@@ -14,21 +17,37 @@ i0.obj('signup-modal',
                 <input i0form="password" type="password" placeholder="Password"><br><br>
                 <button i0form="submit" type="submit"><i class="material-icons">chevron_right</i></button>
             </form>
-            <br><br>
-            <b class="header">Sign Up</b>
-            <form class="form" i0="signupForm">
-                <input i0form="first" placeholder="First Name"><br><br>
-                <input i0form="last" placeholder="Last Name"><br><br>
-                <input i0form="nickname" placeholder="Nick Name" title="We will call you by this name"><br><br>
-                <input i0form="email" type="email" placeholder="Email"><br><br>
-                <input i0form="password" type="password" placeholder="Password"><br><br>
-                <input i0form="confirm" type="password" placeholder="Confirm Password"><br><br>
+            <form class="form hidden" i0="signupForm">
+                <input i0form="first" placeholder="First Name" value="test"><br><br>
+                <input i0form="last" placeholder="Last Name" value="test"><br><br>
+                <input i0form="nickname" placeholder="Nick Name" title="We will call you by this name" value="test"><br><br>
+                <input i0form="email" type="email" placeholder="Email" value="brayanbyrdsong@gmail.com"><br><br>
+                <input i0form="password" type="password" placeholder="Password" value="test"><br><br>
+                <input i0form="confirm" type="password" placeholder="Confirm Password" value="test"><br><br>
                 <button i0form="submit" type="submit"><i class="material-icons">chevron_right</i></button>
             </form>
+            <br><br>
+            <div class="right">
+                <button class="nav-link" i0="switch">New Account</button>
+            </div>
         </section>
     </div>
 `,
 async (ui, props) => {
+    let signinMode = false
+
+    ui.switch.onclick = () => {
+        signinMode = !signinMode
+        ui.signupForm.classList[signinMode ? 'add' : 'remove']('hidden')
+        ui.signinForm.classList[!signinMode ? 'add' : 'remove']('hidden')
+        ui.switch.innerText = signinMode
+            ? 'New Member'
+            : 'Existing Member'
+        ui.title.innerText = signinMode
+            ? 'Member Signin'
+            : 'New Member'
+    }
+    ui.switch.click()
 
     if(data.loaded()){
         ui.modal.classList.add('hidden')

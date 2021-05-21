@@ -99,6 +99,12 @@ hr.m{
     box-shadow: 0 3px 5px rgba(0,0,0,0.3);
     background-color: indigo;
     color: white;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.fixed-btn:hover{
+    background-color: purple;    
 }
 
 .nav-link{
@@ -112,6 +118,13 @@ hr.m{
     cursor: pointer;
     color: blue;
     text-decoration: underline;
+    transition: .3s;
+}
+
+.nav-link:hover{
+    background: rgba(0,0,0,0.09);
+    border-radius: 9px;
+    box-shadow: 0 3px 5px rgba(0,0,0,0.21);
 }
 
 .right{
@@ -140,6 +153,66 @@ hr.m{
     align-items: center;
 }
 
+@media screen and (min-width: 1000px){   
+    .row{
+        display: flex;
+    }
+
+    .row > div{
+        width: 100%;
+    }
+}
+
+.landing-card{
+    padding: 9px;
+    margin: 9px;
+    background-color: rgba(255,255,255,0.42);
+    border-radius: 3px;
+    animation: landing-card 1s;
+}
+
+@keyframes landing-card{
+    0%{
+        transform: translateX(-30px);
+        opacity: .6;
+    }
+    100%{
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+
 .billboard{
     padding: 0 12%;
+    font-size: 1.32em;
+}
+
+.logo{
+    margin-right: 18px;
+    width: 64px;
+}
+
+@media screen and (max-width: 800px){   
+    .logo{
+        margin-right: 9px;
+        width: 32px;
+    }
+    .d{
+        display: none!important;
+    }
+
+    .landing-flyer{
+        width: 100%;
+    }
+}
+
+.landing-flyer{
+    border-radius: 9px;
+    box-shadow: 0 13px 15px rgba(0, 0, 0, 0.21);
+    transition: .3s;
+}
+
+.landing-flyer:hover{
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.42);
+    transform: translateY(-9px);
 }

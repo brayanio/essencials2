@@ -3,7 +3,22 @@ import affirmations from '../objs/affirmations.js'
 import notify from '../services/notify.js'
 import saveday from '../services/save-day.js'
 
-const today = () => `${new Date().getMonth() + 1}/${new Date().getDate()}/${new Date().getFullYear()}`
+const months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December'
+]
+
+const today = () => `${months[new Date().getMonth()]} ${new Date().getDate()}`
 
 const sameDay = (d1, d2) => d1.getFullYear() === d2.getFullYear() 
     && d1.getMonth() === d2.getMonth() 
@@ -12,15 +27,15 @@ const sameDay = (d1, d2) => d1.getFullYear() === d2.getFullYear()
 i0.obj('home', 
 `
 <div class="space-between v-center">
-    <b class="header v-center"><img src="./assets/ico.png" width="64px">${today()}</b>
+    <b class="header v-center">${i0.nugget('logo')}${today()}</b>
     <div>
-        <button i0="download" class="fixed-btn" title="Download todays data"><i class="material-icons">download</i></button>
-        <button i0="view" class="fixed-btn" title="View Mode"><i class="material-icons">visibility</i></button>
-        <button i0="edit" class="fixed-btn hidden" title="Edit Mode"><i class="material-icons">mode_edit</i></button>
+        <button type="button" i0="download" class="fixed-btn d" title="Download todays data"><i class="material-icons">download</i></button>
+        <button type="button" i0="view" class="fixed-btn" title="View Mode"><i class="material-icons">visibility</i></button>
+        <button type="button" i0="edit" class="fixed-btn hidden" title="Edit Mode"><i class="material-icons">mode_edit</i></button>
     </div>
 </div>
 <div>
-    <a href="#growth" class="nav-link">Growth</a>
+    <a href="#growth" class="nav-link">Exercise</a>
     <a href="#feedback" class="nav-link">Feedback</a>
 </div>
 <hr class="m">
@@ -72,6 +87,13 @@ ui => {
     i0.load('subscribe', {}, ui.subscribe)
     i0.load('freetrial', {}, ui.freetrial)
     i0.load('verify', {}, ui.verify)
+
+    i0.onbroadcast('checkPayment', async () => {
+        let res = await i0.fetch('payment', {checkSession: true, email: localStorage.email, sessionId: localStorage.sessionId})
+        console.log('check payment', res)
+    })
+
+    window.i0 = {broadcast: val => i0.broadcast(val)}
 })
 
 export default {}

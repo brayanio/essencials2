@@ -3,12 +3,12 @@ import data from '../services/data.js'
 
 i0.obj('feedback', 
 `
+    <h1 class="header v-center">${i0.nugget('logo')}Feedback</h1>
     <div>
         <a href="#home" class="nav-link">Home</a>
     </div>
-    <h1 class="header center">Feedback / Bug Report</h1>
     <form class="form" i0="form">
-        <textarea i0="input" placeholder="Feedback / Bug"></textarea>
+        <textarea i0="input" placeholder="Feedback or Issue Report"></textarea>
         <button i0="send" type="submit"><i class="material-icons">send</i></button>
     </form>
 `,

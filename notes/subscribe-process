@@ -1,0 +1,5 @@
+1.) Delete account via back end
+2.) Create new account
+3.) Log in to new account
+4.) paste  i0.broadcast('sub-modal')  into the console
+5.) join membership

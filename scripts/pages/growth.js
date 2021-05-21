@@ -9,11 +9,11 @@ const sameDay = (d1, d2) => d1.getFullYear() === d2.getFullYear()
 
 i0.obj('growth', 
 `
+    <h1 class="header v-center">${i0.nugget('logo')}Wellness Exercises</h1>
     <div>
         <a href="#home" class="nav-link">Home</a>
     </div>
-    <h1 class="header center">Growth</h1>
-    <div>
+    <div class="right">
         <button i0="refresh" class="nav-link">Refresh</button>
     </div>
     <div i0="container"></div>

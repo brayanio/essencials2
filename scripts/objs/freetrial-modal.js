@@ -5,7 +5,7 @@ i0.obj('freetrial',
     <div class="modal-bg hidden" i0="modal">
         <section class="modal section">
             <div class="space-between">
-                <b class="header">Free Trial</b>
+                <b class="header v-center">${i0.nugget('logo')}Free Trial</b>
                 <button i0="close" class="nav-link">X</button>
             </div>
             <p class="center billboard">

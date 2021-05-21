@@ -18,6 +18,22 @@
     display: inline-block;
     padding-right: 4.2em;
     transition: .3s;
+    animation: form .69s;
+}
+
+@keyframes form{
+    0%{
+        transform: rotateZ(0deg);
+    }
+    40%{
+        transform: rotateZ(-1deg);
+    }
+    80%{
+        transform: rotateZ(1deg);
+    }
+    100%{
+        transform: rotateZ(0deg);
+    }
 }
 
 .section:focus-within .form, .section:hover .form{
@@ -90,7 +106,6 @@
 }
 
 .container{
-    background-color: rgba(255, 255, 255, 0.3);
     padding: 3px 6px;
     margin: 6px 0;
     border-radius: 9px;
@@ -107,6 +122,10 @@
     margin: 18px 0;
     background-color: rgba(255, 255, 255, 0.72);
     text-transform: capitalize;
+}
+
+.panel.list-item{
+    border-radius: 3px;
 }
 
 .list-item .actions{
