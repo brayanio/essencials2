@@ -1,10 +1,12 @@
 import i0 from '../i0.js'
 
+let account
 let data = {}
 let loaded = false
 
 const save = async key => {
     if(localStorage.email && localStorage.sessionId){
+        console.log('save data', data[key])
         const res = i0.fetch('data', {email: localStorage.email, sessionId: localStorage.sessionId, key, data: data[key]})
         if(res.error) console.error(res.error)
     } else {
@@ -21,11 +23,13 @@ const load = async () => {
             return null
         }
         i0.broadcast('signin', res)
+        account = res
         res = await i0.fetch('data', {email: localStorage.email, sessionId: localStorage.sessionId, load: true})
         console.log('dataloaded', res)
         if(res.error) console.error(res.error)
         else {
             data = Object.assign(data, res)
+            Object.keys(data).forEach(key => data[key] === null ? data[key] = [] : null)
             i0.broadcast('dataloaded', data)
             loaded = true
         }
@@ -80,4 +84,4 @@ const init = key => {
 
 window.printData = () => console.log(data)
 
-export default {init, save, load, loaded: () => loaded, read: () => data}
+export default {init, save, load, loaded: () => loaded, read: () => data, account: () => account}

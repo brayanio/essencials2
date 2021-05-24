@@ -6,8 +6,12 @@
 }
 
 .section:hover, .section:focus-within{
-    background-color: rgba(201,0,0,0.12);
+    /* background-color: rgba(201,0,0,0.12); */
     border-radius: 6px;
+}
+
+.section:focus-within{
+    background-color: rgba(201,0,0,0.12);
 }
 
 .form{
@@ -119,9 +123,18 @@
     display: flex;
     justify-content: space-between;
     padding-right: 4.2em;
-    margin: 18px 0;
+    margin: 9px 0;
     background-color: rgba(255, 255, 255, 0.72);
     text-transform: capitalize;
+    transition: .3s;
+}
+
+.editmode .list-item{
+    margin: 18px 0;
+}
+
+.editmode .panel, .panel.budget-item{
+    padding-bottom: 33px;
 }
 
 .panel.list-item{
@@ -147,6 +160,7 @@
     font-weight: bold;
     font-size: 1em;
     background-image: linear-gradient(white, lightblue);
+    margin: 0 3px;
 }
 
 .actions button:hover{
@@ -167,6 +181,7 @@
     font-weight: bold;
     font-size: 1em;
     width: 81px;
+    margin: 0 3px;
 }
 
 .actions input:hover{
@@ -181,18 +196,51 @@
 .link-card{
     display: flex;
     margin: 12px;
-    background: rgba(255, 255, 255, 0.24);
-    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.69);
+    border-radius: 3px;
+    animation: linkcard 1.5s;
+    margin-top: 21px;
+}
+
+@keyframes linkcard{
+    0%{
+        background: rgba(255, 255, 255, 0);
+    }
+    100%{
+        background: rgba(255, 255, 255, 0.69);
+    }
 }
 
 .link-card iframe{
     border-radius: 6px;
+    border-bottom-left-radius: 3px;
+    box-shadow: 0 6px 9px rgba(0, 0, 0, .3);
 }
 
 .link-card .video{
     display: flex;
     justify-content: center;
     align-items: center;
+    animation: video 3s;
+    margin-top: -12px;
+    border-radius: 3px;
+}
+
+@keyframes video{
+    0%{
+        transform: translateX(21px) scale(.5);
+        opacity: .6;
+        background: black;
+    }
+    50%{
+        transform: translateX(10.5px) scale(1);
+        background: black;
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+        background: transparent;
+    }
 }
 
 .link-card .text{
@@ -208,9 +256,26 @@
 @media screen and (max-width: 1000px){
     .link-card{
         flex-wrap: wrap;
-        background: rgba(255, 255, 255, 0.48);
+        margin-top: 69px;
     }
     .link-card .video{
         width: 100%;
+        margin-top: -60px;
+    }
+    .link-card iframe{
+        border-bottom-left-radius: 6px;
+    }
+    @keyframes video{
+        0%{
+            transform: translateY(21px) scale(.5);
+            opacity: .6;
+        }
+        50%{
+            transform: translateY(10.5px) scale(1);
+        }
+        100%{
+            transform: translateY(0);
+            opacity: 1;
+        }
     }
 }

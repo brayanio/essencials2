@@ -61,7 +61,7 @@ export default () => [
     },
     {
         title: 'Avoid Junk Food Affirmations',
-        desc: 'Here is a 5 minute affirmations video designed to help you avoid junk foods. Improving your diet will not only make you feel healthy, but it will make you think healthier thoughts, and improve brain function. Not to mention the huge energy boost. You and your body deserve the best!',
+        desc: 'Here is a 5 minute affirmations video designed to help you avoid junk foods. Improving your diet will make you feel healthy, think healthier thoughts, improve brain function, and give a huge energy boost. You deserve the best!',
         src: 'https://www.youtube.com/embed/choeauTma7g'
     }
 ]

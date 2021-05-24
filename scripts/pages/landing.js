@@ -50,6 +50,8 @@ i0.obj('landing',
 `,
 ui => {
     
+    document.title = 'Essencials'
+
 })
 
 export default {}

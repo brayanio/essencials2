@@ -6,6 +6,9 @@ i0.obj('success',
 `,
 ui => {
     console.log(location.search.split('?session_id=').join(''))
+
+    document.title = 'Welcome to Essencials!'
+
 })
 
 export default {}

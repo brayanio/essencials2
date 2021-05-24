@@ -30,6 +30,9 @@ i0.obj('signup-modal',
             <div class="right">
                 <button class="nav-link" i0="switch">New Account</button>
             </div>
+            <div class="right">
+                <button class="nav-link" i0="forgot">Forgot Password</button>
+            </div>
         </section>
     </div>
 `,

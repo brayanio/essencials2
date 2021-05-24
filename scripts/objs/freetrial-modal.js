@@ -8,12 +8,15 @@ i0.obj('freetrial',
                 <b class="header v-center">${i0.nugget('logo')}Free Trial</b>
                 <button i0="close" class="nav-link">X</button>
             </div>
+            <div class="center">
+                <img src="./assets/freetrial_flyer_1.PNG" class="landing-flyer" i0="flyer">
+            </div>
             <p class="center billboard">
-                <b class="p-header v-center">
-                    Are you ready to raise your vibration?
-                </b>
-                Every new account is granted a 30 day free trial. Use this tool to program your subconscious with high vibration to manifest anything your heart desires. <button class="nav-link" i0="start">Start Now!</button>
+                Every new account is granted a 7 day free trial. Use this tool to program your subconscious with high vibration to manifest anything your heart desires.
             </p>
+            <div class="right">
+                <button class="nav-link" i0="start">Start Now!</button>
+            </div> 
         </section>
     </div>
 `,
@@ -31,6 +34,7 @@ async (ui, props) => {
         ui.close.click()
         i0.broadcast('signin', res)
     }
+    ui.flyer.onclick = ui.start.onclick
 
 })
 

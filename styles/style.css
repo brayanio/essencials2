@@ -21,6 +21,7 @@ app{
     overflow-y: auto;
     max-height: calc(100% - 18px);
     background-image: linear-gradient(#e4c4e4, violet);
+    box-shadow: 0 3px 5px rgba(0,0,0,0.3);
 }
 
 @media screen and (min-width: 1200px){
@@ -66,6 +67,12 @@ hr.m{
     margin-bottom: 12px;
 }
 
+@media screen and (max-width: 800px){
+    .header{
+        font-size: 1.5em;
+    }
+}
+
 .p-header{
     display: block;
     font-size: 1.2em;
@@ -82,12 +89,7 @@ hr.m{
     box-shadow: 0 3px 6px rgba(0,0,0,0.06);
     padding: 9px;
     border-radius: 9px;
-}
-
-@media screen and (max-width: 1200px){
-    .panel{
-        min-height: 60px;
-    }
+    transition: .3s;
 }
 
 .fixed-btn{
@@ -101,10 +103,31 @@ hr.m{
     color: white;
     cursor: pointer;
     transition: .3s;
+    position: relative;
 }
 
-.fixed-btn:hover{
+.fixed-btn:hover, .fixed-btn:focus{
     background-color: purple;    
+}
+
+.fixed-notification{
+    position: absolute;
+    top: -12px;
+    background: #ff7f88;
+    right: 3px;
+    border-radius: 100%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1em;
+    box-shadow: 0 3px 5px rgba(0,0,0,0.3);
+    transition: .3s;
+}
+
+.fixed-btn:hover .fixed-notification, .fixed-btn:focus .fixed-notification{
+    top: -15px;
 }
 
 .nav-link{
@@ -121,9 +144,29 @@ hr.m{
     transition: .3s;
 }
 
-.nav-link:hover{
+.nav-link:hover, .nav-link:focus{
     background: rgba(0,0,0,0.09);
     border-radius: 9px;
+    box-shadow: 0 3px 5px rgba(0,0,0,0.21);
+}
+
+.header-link{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3px 7px;
+    font-size: 1em;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: indigo;
+    text-decoration: none;
+    transition: .3s;
+    border-radius: 9px;
+}
+
+.header-link:hover, .header-link:focus{
+    background: rgba(0,0,0,0.09);
     box-shadow: 0 3px 5px rgba(0,0,0,0.21);
 }
 
@@ -190,6 +233,16 @@ hr.m{
 .logo{
     margin-right: 18px;
     width: 64px;
+    animation: logo .69s;
+}
+
+@keyframes logo{
+    0%{
+        transform: scale(0);
+    }
+    100%{
+        transform: scale(1);
+    }
 }
 
 @media screen and (max-width: 800px){   
@@ -210,6 +263,7 @@ hr.m{
     border-radius: 9px;
     box-shadow: 0 13px 15px rgba(0, 0, 0, 0.21);
     transition: .3s;
+    cursor: pointer;
 }
 
 .landing-flyer:hover{

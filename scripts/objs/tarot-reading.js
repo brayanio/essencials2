@@ -5,8 +5,9 @@ import cardsService from '../services/cards.js'
 i0.obj('tarot-reading', 
 `
 <section class="section long">
-    <b class="header">Tarot Reading</b>
+    <b class="header"><a class="header-link" href="#tarot">Tarot</a></b>
     <div i0="container" class="container center"></div>
+    <div i0="reading" class="center"></div>
 </section>
 `,
 async ui => {
@@ -34,15 +35,15 @@ async ui => {
         cards.forEach(card => {
             if((Math.random() * 100) <= 33.33)
                 card.reversed = true
-            card.reading = true
+            if(i0.env('display') === 'mobile') card.view = true
+            else card.reading = true
         })
 
         cardsService.push({
             date: new Date().toDateString(),
             cards: cards.map(c => { return {
                 name: c.name.toLowerCase().split(' ').join(''),
-                reversed: c.reversed || false,
-                reading: true
+                reversed: c.reversed || false
             }})
         })
     }
@@ -55,7 +56,8 @@ async ui => {
             cards = save.cards.map(c => {
                 const card = tarot()[c.name]
                 if(c.reversed == 'true') card.reversed = true
-                card.reading = true
+                if(i0.env('display') === 'mobile') card.view = true
+                else card.reading = true
                 return card
             })
         }
@@ -66,6 +68,14 @@ async ui => {
     }
     
     cards.forEach(card => ui.container.appendChild(i0.load('tarot-card', card)))
+
+    i0.onbroadcast('view-tarot', d => {
+        ui.reading.innerHTML = ''
+        const card = Object.assign({}, d)
+        delete card.view
+        card.reading = true
+        ui.reading.appendChild(i0.load('tarot-card', card))
+    })
 
 })
 

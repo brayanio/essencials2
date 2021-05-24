@@ -5,7 +5,7 @@ i0.obj('feedback',
 `
     <h1 class="header v-center">${i0.nugget('logo')}Feedback</h1>
     <div>
-        <a href="#home" class="nav-link">Home</a>
+        <a href="#profile" class="nav-link">Profile</a>
     </div>
     <form class="form" i0="form">
         <textarea i0="input" placeholder="Feedback or Issue Report"></textarea>
@@ -13,6 +13,8 @@ i0.obj('feedback',
     </form>
 `,
 ui => {
+
+    document.title = 'Feedback | Essencials'
 
     if(!data.loaded())
         return location.hash = '#home'

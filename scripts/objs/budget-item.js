@@ -2,20 +2,20 @@ import i0 from '../i0.js'
 
 i0.obj('budget-item', 
 `
-    <div class="panel list-item">
+    <div class="panel list-item budget-item">
         <div i0="panel"></div>
         <div class="actions">
-            <div i0="options">
-                <input placeholder="$" type="number" i0="value"/>
-                <button i0="add"><i class="material-icons">add</i></button>
-                <button i0="sub"><i class="material-icons">remove</i></button>
-                <button i0="open"><i class="material-icons">more_horiz</i></button>
+            <div i0="options" class="v-center">
+                <input placeholder="$" type="number" i0="value" pattern="[0-9]*"/>
+                <button i0="add" title="Add"><i class="material-icons">add</i></button>
+                <button i0="sub" title="Subtract"><i class="material-icons">remove</i></button>
+                <button i0="open" title="Options"><i class="material-icons">more_horiz</i></button>
             </div>
-            <div class="hidden" i0="actions">
-                <button i0="moveUp"><i class="material-icons">arrow_upward</i></button>
-                <button i0="moveDown"><i class="material-icons">arrow_downward</i></button>
-                <button i0="remove"><i class="material-icons">remove_circle</i></button>
-                <button i0="close"><i class="material-icons">cancel</i></button>
+            <div class="hidden" i0="actions" class="v-center">
+                <button i0="moveUp" title="Move up"><i class="material-icons">arrow_upward</i></button>
+                <button i0="moveDown" title="Move down"><i class="material-icons">arrow_downward</i></button>
+                <button i0="remove" title="Remove"><i class="material-icons">remove_circle</i></button>
+                <button i0="close" title="Close"><i class="material-icons">cancel</i></button>
             </div>
         </div>
     </div>    
@@ -30,7 +30,7 @@ i0.obj('budget-item',
         let num = parseFloat(ui.value.value)
         if(num){
             ui.value.value = ''
-            props.service.update(props.item, {value: props.item.value + num})
+            props.service.update(props.item, {value: parseFloat(props.item.value) + num})
             i0.broadcast('update')
         }
     }
@@ -39,7 +39,7 @@ i0.obj('budget-item',
         let num = parseFloat(ui.value.value)
         if(num){
             ui.value.value = ''
-            props.service.update(props.item, {value: props.item.value - num})
+            props.service.update(props.item, {value: parseFloat(props.item.value) - num})
             i0.broadcast('update')
         }
     }
@@ -81,6 +81,10 @@ i0.obj('budget-item',
     ui.actions.onclick = () => cd += 2
 
     if(props.open) ui.open.click()
+    
+    i0.onbroadcast('editmode', () => ui.open.classList.remove('hidden'))
+    i0.onbroadcast('viewmode', () => ui.open.classList.add('hidden'))
+    if(i0.env('mode') === 'view') ui.open.classList.add('hidden')
 
 })
 

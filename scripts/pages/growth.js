@@ -14,11 +14,13 @@ i0.obj('growth',
         <a href="#home" class="nav-link">Home</a>
     </div>
     <div class="right">
-        <button i0="refresh" class="nav-link">Refresh</button>
+        <button i0="refresh" class="fixed-btn"><i class="material-icons">refresh</i><sup i0="refreshCount" class="fixed-notification"></sup></button>
     </div>
     <div i0="container"></div>
 `,
 ui => {
+
+    document.title = 'Exercise | Essencials'
 
     if(!data.loaded())
         return location.hash = '#home'
@@ -36,69 +38,62 @@ ui => {
         return {i, card}
     }
 
-    const linkcards = linkcardAr()
-
-    let cards = [
-        removeRandom(linkcards),
-        removeRandom(linkcards),
-        removeRandom(linkcards)
-    ]
-
-    console.log('cards', cards)
 
     const loadCards = () => {
         let save = Object.assign({}, videos.get()[0])
         save.cards = save.cards.map(i => linkcardAr()[i])
         cards = save.cards
+        console.log('loadcards', cards)
+        return cards
     }
 
-    if(!videos.get().length){
+    const saveCards = (refreshVal) => {
+        const linkcards = linkcardAr()
+        cards = [
+            removeRandom(linkcards),
+            removeRandom(linkcards),
+            removeRandom(linkcards)
+        ]
         videos.push({
             date: new Date().toDateString(),
-            cards: cards.map(o => o.i)
+            cards: cards.map(o => o.i),
+            refreshes: refreshVal
         })
-        loadCards()
+    }
+
+    let cards
+    if(!videos.get().length){
+        console.log('No data found', videos.get())
+        saveCards(3)
+        cards = loadCards()
+        ui.refreshCount.innerText = save.refreshes
     } else {
         let save = videos.get()[0]
         let savedDate = new Date(save.date)
         let today = new Date()
         if(!sameDay(savedDate, today)){
+            console.log('Its a different Day')
             videos.remove(save)
-            videos.push({
-                date: new Date().toDateString(),
-                cards: cards.map(o => o.i)
-            })
-            loadCards()
+            saveCards(3)
+            cards = loadCards()
         } else {
-            loadCards()
+            cards = loadCards()
         }
+        ui.refreshCount.innerText = save.refreshes
     }
-
     cards.forEach(card => ui.container.appendChild(i0.load('link-card', card)))
     
-    if(!localStorage.refreshes) localStorage.refreshes = 3
-    ui.refresh.innerText = `Refresh (${localStorage.refreshes})`
     ui.refresh.onclick = () => {
-        if(localStorage.refreshes > 0){
-            localStorage.refreshes--
-            ui.refresh.innerText = `Refresh (${localStorage.refreshes})`
-            const linkcards = linkcardAr()
-
-            let cards = [
-                removeRandom(linkcards),
-                removeRandom(linkcards),
-                removeRandom(linkcards)
-            ]
+        let save = videos.get()[0]
+        if(save.refreshes > 0){            
 
             videos.remove(videos.get()[0])
-            videos.push({
-                date: new Date().toDateString(),
-                cards: cards.map(o => o.i)
-            })
-            
-            loadCards()
+            saveCards(save.refreshes - 1)
+            cards = loadCards()
+            save = videos.get()[0]
+            ui.refreshCount.innerText = save.refreshes
 
-            console.log('updated cards', cards)
+            console.log('updated videos', videos.get()[0])
 
             ui.container.innerHTML = ''
             cards.forEach(card => ui.container.appendChild(i0.load('link-card', card)))

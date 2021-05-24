@@ -1,23 +1,49 @@
-.tarot-container{
-    display: inline-block;
-}
-
 .tarot-img{
-    border-radius: 9px;
+    border-radius: 3px;
     max-width: 100%;
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
 }
 
 .tarot-container{
+    display: inline-block;
     padding: 6px;
     margin: 6px;
-    border-radius: 6px;
-    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+    background-color: rgba(255, 255, 255, 0.69);
 }
 
 .reversed{
     transform: rotate(180deg);
     box-shadow: 0 -3px 5px rgba(0, 0, 0, 0.3);
+}
+
+.view{
+    width: 140px;
+    height: 240px;
+    cursor: pointer;
+}
+
+.view:nth-child(1){
+    transform: rotateZ(-10deg) translateX(10px);
+}
+
+.view:nth-child(2){
+    z-index: 2;
+    transform: translateY(-10px);
+}
+
+.view:nth-child(3){
+    transform: rotateZ(10deg) translateX(-10px);
+}
+
+@media screen and (max-width: 600px){
+    .tarot-container{
+        margin: 6px -15px;
+    }
+    .view{
+        width: 70px;
+        height: 120px;
+    }
 }
 
 @media screen and (max-width: 1000px){
