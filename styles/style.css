@@ -196,6 +196,10 @@ hr.m{
     align-items: center;
 }
 
+.w100{
+    width: 100%;
+}
+
 @media screen and (min-width: 1000px){   
     .row{
         display: flex;

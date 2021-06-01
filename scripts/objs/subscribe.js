@@ -9,13 +9,15 @@ i0.obj('subscribe',
                     ${i0.nugget('logo')}
                     Membership
                 </b>
-                <button i0="close" class="nav-link">X</button>
             </div>
             <div class="center">
                 <img src="./assets/membership_flyer_1.PNG" class="landing-flyer" i0="flyer">
             </div>
             <p class="text-center billboard">
                 Join Essencials and start the journey of self improvement today! By showing Essencials support, we will be able to add new features and more custom content.
+            </p>
+            <p>
+                Your free trial has expired
             </p>
             <div class="right">
                 <button i0="checkout" class="nav-link">Join Membership</button>
@@ -25,11 +27,10 @@ i0.obj('subscribe',
 `,
 async (ui, props) => {
 
-    i0.onbroadcast('sub-modal', () => {
+    i0.onbroadcast('sub-modal', (val) => {
         ui.modal.classList.remove('hidden')
+        if(val === false) ui.modal.classList.add('hidden')
     })
-
-    ui.close.onclick = () => ui.modal.classList.add('hidden')
 
     ui.checkout.onclick = async () => {
         let res = await i0.fetch('payment', {email: localStorage.email, sessionId: localStorage.sessionId})

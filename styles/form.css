@@ -250,6 +250,7 @@
 @media screen and (min-width: 1000px){
     .link-card .text{
         padding: 24px;
+        width:100%;
     }
 }
 

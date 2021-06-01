@@ -10,6 +10,9 @@ import affirmations from './affirmations.js'
 import budget from './budget.js'
 import goals from './goals.js'
 import schedule from './schedule.js'
+import prompt from './prompt.js'
+
+import recoverpassword from './recoverpassword.js'
 
 export default {
     '': 'landing',
@@ -24,5 +27,7 @@ export default {
     '#affirmations': 'affirmations-page',
     '#budget': 'budget-page',
     '#goals': 'goals-page',
-    '#schedule': 'schedule-page'
+    '#schedule': 'schedule-page',
+    '#write': 'prompt-page',
+    '#recoverpassword': 'recoverpassword'
 }

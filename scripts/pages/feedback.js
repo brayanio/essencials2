@@ -7,10 +7,12 @@ i0.obj('feedback',
     <div>
         <a href="#profile" class="nav-link">Profile</a>
     </div>
-    <form class="form" i0="form">
-        <textarea i0="input" placeholder="Feedback or Issue Report"></textarea>
-        <button i0="send" type="submit"><i class="material-icons">send</i></button>
-    </form>
+    <section class="section">
+        <form class="form" i0="form" style="width:100%;">
+            <textarea i0="input" placeholder="Feedback or Issue Report" style="width:100%;resize:none;"></textarea>
+            <button i0="send" type="submit"><i class="material-icons">send</i></button>
+        </form>
+    </section>
 `,
 ui => {
 

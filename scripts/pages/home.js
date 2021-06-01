@@ -30,7 +30,7 @@ i0.obj('home',
 <div class="space-between v-center">
     <span class="header v-center">
         ${i0.nugget('logo')}
-        <a i0="nickname" href="#profile" class="nav-link" style="font-size: 1em;"></a>
+        <a i0="nickname" href="#profile" class="header-link" style="font-size: 1em;"></a>
     </span>
     <div>
         <button type="button" i0="download" class="fixed-btn d" title="Save Today's Data"><i class="material-icons">download</i></button>
@@ -40,6 +40,7 @@ i0.obj('home',
 </div>
 <div>
     <a href="#growth" class="nav-link">Exercise</a>
+    <a href="#write" class="nav-link">Write</a>
 </div>
 <b class="header center">${today()}</b>
 <hr class="m">
@@ -72,7 +73,10 @@ ui => {
         if(a){
             if(!a.verified) return i0.broadcast('verify-modal')
             if(!a.freeTrial) return i0.broadcast('freetrial-modal')
-            if(!a.subTime) return i0.broadcast('sub-modal')
+            if((new Date(a.subTime) < new Date()) && !a.active) {
+                i0.broadcast('checkSubscription')
+                return i0.broadcast('sub-modal')
+            }
             ui.nickname.innerText = a.nickname.substr(0, 1).toUpperCase() + a.nickname.substr(1)
         }
     })
@@ -109,6 +113,9 @@ ui => {
     i0.onbroadcast('checkPayment', async () => {
         let res = await i0.fetch('payment', {checkSession: true, email: localStorage.email, sessionId: localStorage.sessionId})
         console.log('check payment', res)
+        if(res.active){
+            i0.broadcast('sub-modal', false)
+        }
     })
 
     i0.onbroadcast('checkSubscription', async () => {

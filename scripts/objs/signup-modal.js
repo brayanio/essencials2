@@ -18,12 +18,12 @@ i0.obj('signup-modal',
                 <button i0form="submit" type="submit"><i class="material-icons">chevron_right</i></button>
             </form>
             <form class="form hidden" i0="signupForm">
-                <input i0form="first" placeholder="First Name" value="test"><br><br>
-                <input i0form="last" placeholder="Last Name" value="test"><br><br>
-                <input i0form="nickname" placeholder="Nick Name" title="We will call you by this name" value="test"><br><br>
-                <input i0form="email" type="email" placeholder="Email" value="brayanbyrdsong@gmail.com"><br><br>
-                <input i0form="password" type="password" placeholder="Password" value="test"><br><br>
-                <input i0form="confirm" type="password" placeholder="Confirm Password" value="test"><br><br>
+                <input i0form="first" placeholder="First Name"><br><br>
+                <input i0form="last" placeholder="Last Name"><br><br>
+                <input i0form="nickname" placeholder="Nick Name" title="We will call you by this name"><br><br>
+                <input i0form="email" type="email" placeholder="Email"><br><br>
+                <input i0form="password" type="password" placeholder="Password"><br><br>
+                <input i0form="confirm" type="password" placeholder="Confirm Password"><br><br>
                 <button i0form="submit" type="submit"><i class="material-icons">chevron_right</i></button>
             </form>
             <br><br>
@@ -31,7 +31,7 @@ i0.obj('signup-modal',
                 <button class="nav-link" i0="switch">New Account</button>
             </div>
             <div class="right">
-                <button class="nav-link" i0="forgot">Forgot Password</button>
+                <a class="nav-link" href="#recoverpassword">Forgot Password</a>
             </div>
         </section>
     </div>
@@ -92,7 +92,7 @@ async (ui, props) => {
         signup = i0.form(ui.signupForm)
         if(signup.email.value && signup.password.value && signup.confirm.value){
             if(signup.password.value !== signup.confirm.value){
-                alert('Password and Confirm Password DO NOT MATCH. FIX THAT. FIX IT NOW. IM GOING TO GO AHEAD AND DELETE ALL THE CONTENTS OF THE PASSWORD AND THE CONFIRM SO JUST REDO ALL OF IT. DONT MESS UP THIS TIME. ♥')
+                alert('Password and Confirm Password do not match.')
                 signup.password.el.value = ''
                 signup.confirm.el.value = ''
                 signup.password.el.focus()
